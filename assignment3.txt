@@ -1,0 +1,16 @@
+Sebastian France
+s1028982
+group 46
+----------------------------------------------------------------------------------------------
+3.6) g0 as bs = [ (a, b) | a ← as, b ← bs ] could be name join or merge. As we take two list and create a new list out of them by combining the 
+repective elements in a tuple. So a1 and b1 become a tuple (a1,b1). This function if fully polymorphic.
+
+g1 n y = [ y | i ← [1..n] ] repeat seems appropriate to me. It will create a list filled with n copies of the list it is given. This function is overloaded, as n only takes inputs from nums.
+
+g2 n xs = [ x | (i, x) ← zip [0..] xs, i < n ] This seems to do the same as take from excersize 3.3. I will therefor also call it take. It takes the first n amount of elements from the list. This function is also overloaded. As n can only be a nums.
+
+g3 a xs = [ i | (i, x) ← zip [0..] xs, x == a] I will call this find. As the function finds all instances of a in the list of xs. This function is fully polymorphic i believe, It depends on wether or not the list actually works with the input of a. But if both are of the same type it does work.
+ 
+g4 xs ys = [ e | (x, y) ← zip xs ys, e ← [x,y] ] I will call this function merge, As we merge together two list into one. This function is fully polymorphic, but has the same issues as the previous that the list must be of the same type. As we can't make a list that has booleans and int for example 
+
+g5 xss = [ x | xs ← xss, x ← xs ] I will call this function concat. We can feed it a list of lists and the function will combine these into one list end to end without shuffeling the lsit. I believe this function is fully polymorphic. As you can put all types of list in the function. The only constraint being that the list has to be a list of lists. (or does that make it overloaded im not sure on this one)
